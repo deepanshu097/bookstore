@@ -1,0 +1,33 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.navbar{
+    height: 5rem;
+}
+.navbar .navbar-brand{
+    font-size: 1.6em;
+}
+a{
+    font-size: 1.2em;
+}
+
+ .img{
+
+    background-image: url('images/open-book.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 59% 100%;
+
+}
+.login , .index{
+    height:90vh;
+    width:100%;
+   
+}
+
+
+.h1{
+    color: rgb(169, 132, 203);
+}
