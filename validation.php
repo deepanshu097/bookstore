@@ -1,29 +1,30 @@
 <?php 
-session_start();
+include('connectdb.php');
 
-$con = mysqli_connect('localhost','root');
-if($con){
-    echo 'successful';
-}
-else{
-    echo ' failed';
-}
-
-mysqli_select_db($con,'bookstore');
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql =" select * from users where email='$email' && password='$password'";
-$result = mysqli_query($con,$sql);
-$num = mysqli_num_rows($result);
+if(isset($email) && isset($password)){
+$email=stripcslashes($email);
+$password=stripcslashes($password);
+}
 
-if($num=0){
-    echo 'invalid credentials';
-    $_SESSION['email'] = $email;
-    header('location:login.php');
+$email=mysqli_real_escape_string($con,$email);
+$password=mysqli_real_escape_string($con,$password);
+
+$sql = "SELECT * FROM admin WHERE email='$email' AND password='$password'";
+$result=mysqli_query($con,$sql);
+$row=mysqli_num_rows($result);
+$data=mysqli_fetch_assoc($result);
+
+if($row>0){
+    $_SESSION['name']=$data['name'];
+    $_SESSION['role']=['admin'];
+    print_r($data);
+    header('location:book1.php');
 }
-else{
-    header('location:index.php');
-}
+
+
+
 ?>

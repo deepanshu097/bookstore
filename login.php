@@ -13,11 +13,10 @@
   </head>
   <body>
 <?php include 'components/navbar.php';?>
-
  
     <div class=" login container-fluid img">
       <div class="col-md-5 col-lg-5 col-11  py-4 my-4 mx-auto float-right  ">
-  <form action="validation.php" method="post" class=" text-center" >
+  <form action="validation.php" method="POST" class=" text-center" >
   <div class="form-row d-inline  my-4  ">
     <div class="my-4 text-secondary mb-4 pb-4 "><h4 class=" mb-4 pb-4">Login</h4></div>
    
@@ -39,8 +38,6 @@
 </form>
 </div>
 </div>
-
-
 
    <?php include 'components/footer.php' ?>
   </body>
