@@ -1,13 +1,18 @@
-
+<?php if(!isset($_SESSION['user_id'])){
+    header("location:login.php");
+  } ?>
 <?php
 include('connectdb.php');
     #updating book count
 
-    $product_count = $_POST['product_count'];
-    $product_id = $_POST['product_id'];
-    $price = $_POST['price'];
-    $total_price = $product_count * $price ; 
-    $sql ="UPDATE `cart` SET `product_count` = '$product_count' WHERE `cart`.`product_id` ='$product_id' ";
+    $prod_count = $_POST['prod_count'];
+    $prod_id = $_POST['prod_id'];
+    $prod_price = $_POST['price'];
+
+    $total_price = $prod_count * $prod_price ; 
+
+    $sql ="UPDATE `cart` SET prod_count = '$prod_count', total_price ='$total_price'
+    WHERE `cart`.`prod_id` ='$prod_id' ";
     $update_result = mysqli_query($con,$sql);
     if($update_result){
         header('Location:cart.php'); 
